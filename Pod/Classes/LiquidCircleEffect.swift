@@ -19,7 +19,7 @@ class LiquidCircleEffect : LiquidLoadEffect {
     
     override func setupShape() -> [LiquittableCircle] {
         return Array(0..<numberOfCircles).map { i in
-            let angle = CGFloat(i) * CGFloat(2 * Double.pi) / 8.0
+            let angle = CGFloat(i) * CGFloat(2 * Double.pi) / 24.0
             let frame = self.loader.frame
             let center = CGMath.circlePoint(frame.center.minus(frame.origin), radius: self.radius - self.circleRadius, rad: angle)
             return LiquittableCircle(
@@ -52,11 +52,11 @@ class LiquidCircleEffect : LiquidLoadEffect {
     }
 
     override func willSetup() {
-        self.circleRadius = loader.frame.width * 0.09
+        self.circleRadius = loader.frame.width * 0.01
         self.circleScale = 1.10
-        self.engine = SimpleCircleLiquidEngine(radiusThresh: self.circleRadius * 0.85, angleThresh: 0.5)
+        //self.engine = SimpleCircleLiquidEngine(radiusThresh: self.circleRadius * 0.85, angleThresh: 0.5)
         let moveCircleRadius = circleRadius * moveScale
-        moveCircle = LiquittableCircle(center: movePosition(0.0), radius: moveCircleRadius, color: self.color, growColor: self.growColor)
+        moveCircle = LiquittableCircle(center: movePosition(0.0), radius: moveCircleRadius, color: self.growColor, growColor: self.growColor)
     }
 
     override func resize() {

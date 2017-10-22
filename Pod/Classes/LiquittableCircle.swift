@@ -54,7 +54,7 @@ class LiquittableCircle : UIView {
     func draw(path: UIBezierPath) {
         self.layer.sublayers?.each { $0.removeFromSuperlayer() }
         let layer = CAShapeLayer(layer: self.layer)
-        layer.lineWidth = 3.0
+        layer.lineWidth = 0.0
         layer.fillColor = self.color.cgColor
         layer.path = path.cgPath
         self.layer.addSublayer(layer)
@@ -65,7 +65,7 @@ class LiquittableCircle : UIView {
     
     func grow(isGrow: Bool) {
         if isGrow {
-            grow(self.growColor, radius: self.radius, shininess: 1.6)
+            grow(self.growColor, radius: self.radius, shininess: 0)
         } else {
             self.layer.shadowRadius = 0
             self.layer.shadowOpacity = 0

@@ -14,7 +14,7 @@ class LiquidLoadEffect : NSObject {
     var numberOfCircles: Int
     var duration: CGFloat
     var circleScale: CGFloat = 1.17
-    var moveScale: CGFloat = 0.80
+    var moveScale: CGFloat = 4.40
     var color = UIColor.white
     var growColor = UIColor.red
     
