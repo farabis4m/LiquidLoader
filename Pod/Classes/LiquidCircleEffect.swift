@@ -55,8 +55,13 @@ class LiquidCircleEffect : LiquidLoadEffect {
         self.circleRadius = loader.frame.width * 0.01
         self.circleScale = 1.10
         //self.engine = SimpleCircleLiquidEngine(radiusThresh: self.circleRadius * 0.85, angleThresh: 0.5)
+        
+    }
+    
+    override func addTicker() {
         let moveCircleRadius = circleRadius * moveScale
         moveCircle = LiquittableCircle(center: movePosition(0.0), radius: moveCircleRadius, color: self.growColor, growColor: self.growColor)
+        loader?.addSubview(moveCircle!)
     }
 
     override func resize() {

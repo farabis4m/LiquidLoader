@@ -74,6 +74,11 @@ class LiquidLoadEffect : NSObject {
         resize()
 
         timer = CADisplayLink(target: self, selector: #selector(LiquidLoadEffect.update))
+        
+    }
+    
+    func start() {
+        addTicker()
         timer?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
@@ -115,6 +120,10 @@ class LiquidLoadEffect : NSObject {
     
     func willSetup() {
         // abstract
+    }
+    
+    func addTicker() {
+        //abstract
     }
     
     func grow(_ isGrow: Bool) {
