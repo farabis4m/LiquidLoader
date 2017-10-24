@@ -52,8 +52,9 @@ class LiquidLoadEffect : NSObject {
             self.growColor = growColor!
         }
         super.init()
-        setup()
+//        setup()
     }
+    
 
     func resize() {
         // abstract
@@ -114,7 +115,7 @@ class LiquidLoadEffect : NSObject {
         return CGPoint.zero // abstract
     }
 
-    func update() {
+    @objc func update() {
         // abstract
     }
     

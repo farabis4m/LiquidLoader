@@ -42,7 +42,6 @@ public class LiquidLoader : UIView {
         self.effect = effect
         super.init(frame: frame)
         self.effectDelegate = self.effect.setup(loader: self)
-        
     }
 
     public required init?(coder aDecoder: NSCoder) {
@@ -68,6 +67,8 @@ public class LiquidLoader : UIView {
         if(self.window == nil) {
             // we were removed.. lets stop everything
             effectDelegate?.stopTimer()
+        }else {
+            effectDelegate?.setup()
         }
     }
 }
