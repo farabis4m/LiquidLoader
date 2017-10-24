@@ -83,6 +83,10 @@ class LiquidLoadEffect : NSObject {
         timer?.add(to: RunLoop.main, forMode: RunLoopMode.commonModes)
     }
     
+    func stop() {
+        moveCircle?.removeFromSuperview()
+    }
+    
     func updateKeyframe(_ key: CGFloat) {
         self.engine?.clear()
         let movePos = movePosition(key)

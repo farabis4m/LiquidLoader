@@ -59,7 +59,13 @@ public class LiquidLoader : UIView {
     }
     
     public func start() {
+        alpha = 1.0
         self.effectDelegate?.start()
+    }
+    
+    public func stop() {
+        alpha = 0.5
+        self.effectDelegate?.stop()
     }
    
     override public func didMoveToWindow() {

@@ -19,7 +19,7 @@ class LiquidCircleEffect : LiquidLoadEffect {
     
     override func setupShape() -> [LiquittableCircle] {
         return Array(0..<numberOfCircles).map { i in
-            let angle = CGFloat(i) * CGFloat(2 * Double.pi) / 24.0
+            let angle = CGFloat(i) * CGFloat(2 * Double.pi) / CGFloat(numberOfCircles)
             let frame = self.loader.frame
             let center = CGMath.circlePoint(frame.center.minus(frame.origin), radius: self.radius - self.circleRadius, rad: angle)
             return LiquittableCircle(
@@ -59,6 +59,8 @@ class LiquidCircleEffect : LiquidLoadEffect {
     }
     
     override func addTicker() {
+        key = 0.75
+        moveCircle?.removeFromSuperview()
         let moveCircleRadius = circleRadius * moveScale
         moveCircle = LiquittableCircle(center: movePosition(0.0), radius: moveCircleRadius, color: self.growColor, growColor: self.growColor)
         loader?.addSubview(moveCircle!)
@@ -82,4 +84,12 @@ class LiquidCircleEffect : LiquidLoadEffect {
         }
     }
     
+}
+extension Int {
+    
+    //radians
+    var radians: CGFloat { return CGFloat(Double(self) * .pi / 180) }
+    
+    //degrees
+    var degrees: Double { return Double(self) * 180 / .pi }
 }
